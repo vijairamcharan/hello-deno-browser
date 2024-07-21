@@ -16,7 +16,8 @@ async function handler(req: Request): Promise<Response> {
   console.log(emojify(":t-rex: :heart: NPM SERVER"));
 
   const url = new URL(req.url);
-  const filePath = `.${url.pathname}`;
+  // Prepend the 'client' folder to the path
+  const filePath = `./client${url.pathname}`;
   const fileExt = extname(filePath);
   const contentType = getContentType(fileExt);
 
