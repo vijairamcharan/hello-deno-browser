@@ -3,6 +3,7 @@ import { extname } from "https://deno.land/std@0.192.0/path/mod.ts";
 import { transpile } from "https://deno.land/x/emit/mod.ts";
 import { emojify } from "npm:node-emoji@2";
 
+// Define MIME types for various file extensions
 const mimeTypes: { [key: string]: string } = {
   ".html": "text/html",
   ".js": "application/javascript",
@@ -16,7 +17,12 @@ async function handler(req: Request): Promise<Response> {
   console.log(emojify(":t-rex: :heart: NPM SERVER"));
 
   const url = new URL(req.url);
-  // Prepend the 'client' folder to the path
+
+  if (url.pathname.startsWith("/api/")) {
+    return handleApiRequest(url);
+  }
+
+  // Prepend the 'client' folder to the path for static files
   const filePath = `./client${url.pathname}`;
   const fileExt = extname(filePath);
   const contentType = getContentType(fileExt);
@@ -49,6 +55,22 @@ async function getFileContent(
     return await result.get(url.href);
   } else {
     return await Deno.readFile(filePath);
+  }
+}
+
+async function handleApiRequest(url: URL): Promise<Response> {
+  const apiPath = `.${url.pathname}.ts`;
+
+  try {
+    const { handler } = await import(apiPath);
+    const response = await handler();
+    return new Response(JSON.stringify(response), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    console.error(err);
+    return new Response("API handler not found", { status: 404 });
   }
 }
 
