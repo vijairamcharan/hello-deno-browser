@@ -19,7 +19,7 @@ async function handler(req: Request): Promise<Response> {
   const url = new URL(req.url);
 
   if (url.pathname.startsWith("/api/")) {
-    return handleApiRequest(url);
+    return handleApiRequest(req, url);
   }
 
   // Prepend the 'client' folder to the path for static files
@@ -58,16 +58,27 @@ async function getFileContent(
   }
 }
 
-async function handleApiRequest(url: URL): Promise<Response> {
+async function handleApiRequest(req: Request, url: URL): Promise<Response> {
   const apiPath = `.${url.pathname}.ts`;
 
   try {
-    const { handler } = await import(apiPath);
-    const response = await handler();
-    return new Response(JSON.stringify(response), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    const { get, post } = await import(apiPath);
+    if (req.method === "GET" && get) {
+      const response = await get();
+      return new Response(JSON.stringify(response), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    } else if (req.method === "POST" && post) {
+      const body = await req.json();
+      const response = await post(body);
+      return new Response(JSON.stringify(response), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    } else {
+      return new Response("Method Not Allowed", { status: 405 });
+    }
   } catch (err) {
     console.error(err);
     return new Response("API handler not found", { status: 404 });

@@ -1,3 +1,3 @@
-export async function handler(): Promise<{ message: string }> {
+export async function get(): Promise<{ message: string }> {
   return { message: "Challenge accepted!" };
 }
