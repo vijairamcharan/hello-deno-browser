@@ -1,6 +1,10 @@
-import { Application, Router, send } from "https://deno.land/x/oak/mod.ts";
+import {
+  Application,
+  Router,
+  send,
+} from "https://deno.land/x/oak@v16.1.0/mod.ts";
 import { extname } from "https://deno.land/std@0.192.0/path/mod.ts";
-import { transpile } from "https://deno.land/x/emit/mod.ts";
+import { transpile } from "https://deno.land/x/emit@0.40.0/mod.ts";
 import { emojify } from "npm:node-emoji@2";
 
 // Define MIME types for various file extensions
