@@ -39,10 +39,11 @@ router.get("/api/:path*", async (context) => {
 
 router.post("/api/:path*", async (context) => {
   const apiPath = `./api/${context.params.path}.ts`;
+  console.log("POST request received for path", { apiPath });
   try {
     const { post } = await import(apiPath);
     if (post) {
-      const body = await context.request.body({ type: "json" }).value;
+      const body = await context.request.body.json();
       const response = await post(body);
       context.response.status = 200;
       context.response.headers.set("Content-Type", "application/json");
@@ -60,6 +61,18 @@ router.post("/api/:path*", async (context) => {
 
 app.use(router.routes());
 app.use(router.allowedMethods());
+
+// Serve index.html when root is requested
+app.use(async (context, next) => {
+  if (context.request.url.pathname === "/") {
+    await send(context, "/index.html", {
+      root: `${Deno.cwd()}/client`,
+      index: "index.html",
+    });
+  } else {
+    await next();
+  }
+});
 
 // Serve static files
 app.use(async (context) => {
@@ -90,7 +103,5 @@ app.use(async (context) => {
   }
 });
 
-console.log(
-  "HTTP server running. Access it at: http://localhost:8000/index.html"
-);
+console.log("HTTP server running. Access it at: http://localhost:8000/");
 await app.listen({ port: 8000 });
