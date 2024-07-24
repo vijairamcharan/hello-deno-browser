@@ -27,6 +27,7 @@
       "jsr:@std/media-types@0.224": "jsr:@std/media-types@0.224.1",
       "jsr:@std/path@0.223": "jsr:@std/path@0.223.0",
       "jsr:@std/path@^0.218.2": "jsr:@std/path@0.218.2",
+      "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:node-emoji@2": "npm:node-emoji@2.1.3",
       "npm:path-to-regexp@6.2.1": "npm:path-to-regexp@6.2.1"
     },
@@ -146,6 +147,10 @@
         "integrity": "sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==",
         "dependencies": {}
       },
+      "@types/node@18.16.19": {
+        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
+        "dependencies": {}
+      },
       "char-regex@1.0.2": {
         "integrity": "sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw==",
         "dependencies": {}
@@ -184,10 +189,22 @@
     "https://deno.land/std/path/mod.ts": "https://deno.land/std@0.224.0/path/mod.ts",
     "https://deno.land/x/emit/mod.ts": "https://deno.land/x/emit@0.40.0/mod.ts",
     "https://deno.land/x/oak/mod.ts": "https://deno.land/x/oak@v16.1.0/mod.ts",
-    "https://esm.run/react": "https://cdn.jsdelivr.net/npm/react/+esm"
+    "https://esm.run/node-emoji@2": "https://cdn.jsdelivr.net/npm/node-emoji@2/+esm",
+    "https://esm.run/react": "https://cdn.jsdelivr.net/npm/react/+esm",
+    "https://esm.run/react-dom": "https://cdn.jsdelivr.net/npm/react-dom/+esm",
+    "https://esm.sh/v128/@types/react@~18.2/jsx-runtime~.d.ts": "https://esm.sh/v128/@types/react@18.2.38/jsx-runtime~.d.ts"
   },
   "remote": {
+    "https://cdn.jsdelivr.net/npm/@sindresorhus/is@4.6.0/+esm": "1d2782fd7c8143acafa49a37f348ba21f3ba25c7077a3642b94ad00266bb0859",
+    "https://cdn.jsdelivr.net/npm/char-regex@1.0.2/+esm": "283a522115e9e955ecd624c44145a050aa82711b6ebf5624220d114f8bc5333a",
+    "https://cdn.jsdelivr.net/npm/emojilib@2.4.0/+esm": "553f22362bb6933b293b4c1edc96964218538e189c868590604a33e5750d1901",
+    "https://cdn.jsdelivr.net/npm/node-emoji@2/+esm": "5fe5b89d4fce7246dde96d7870ff80d17075f01be40977901e9a126f9cae6d8c",
+    "https://cdn.jsdelivr.net/npm/react-dom/+esm": "79672f0b11f632a9ec09c1c2704d7dcc0592bf4d9b5e87a42e6473d36509b9b1",
     "https://cdn.jsdelivr.net/npm/react/+esm": "7155a58fa0dae2a631e2791a5f86af8820c04369745972927ae56e23bcc184bd",
+    "https://cdn.jsdelivr.net/npm/react@18.3.1/+esm": "7155a58fa0dae2a631e2791a5f86af8820c04369745972927ae56e23bcc184bd",
+    "https://cdn.jsdelivr.net/npm/scheduler@0.23.2/+esm": "84b1f75b555c8c0d712072c0e03278001b0b92c62b1cfca91b806606232d9c6f",
+    "https://cdn.jsdelivr.net/npm/skin-tone@2.0.0/+esm": "6a5167d39f0afb02b3bc2bcb35c0c5497975082a13438001732afe15d900c872",
+    "https://cdn.jsdelivr.net/npm/unicode-emoji-modifier-base@1.0.0/+esm": "489b026a505f7bb322ee4ec0b88cc1c3bd89e34c575ea55e85690343919646db",
     "https://deno.land/std@0.186.0/_util/asserts.ts": "178dfc49a464aee693a7e285567b3d0b555dc805ff490505a8aae34f9cfb1462",
     "https://deno.land/std@0.186.0/_util/os.ts": "d932f56d41e4f6a6093d56044e29ce637f8dcc43c5a90af43504a889cf1775e3",
     "https://deno.land/std@0.186.0/path/_constants.ts": "e49961f6f4f48039c0dfed3c3f93e963ca3d92791c9d478ac5b43183413136e0",
@@ -332,6 +349,9 @@
     "https://deno.land/x/oak@v16.1.0/utils/encode_url.ts": "c0ed6b318eb9523adeebba32eb9acd059c0f94d3511b2b9e3b024722d1b3dfb8",
     "https://deno.land/x/oak@v16.1.0/utils/resolve_path.ts": "aa39d54a003b38fee55f340a0cba3f93a7af85b8ddd5fbfb049a98fc0109b36d",
     "https://deno.land/x/oak@v16.1.0/utils/streams.ts": "6d55543fdeddc3c9c6f512de227b9b33ff4b0ec5e320edc109f0cbf9bef8963f",
-    "https://deno.land/x/oak@v16.1.0/utils/type_guards.ts": "a1b42aa4c431c4c07d3f8a45a2142020f86d5a3e1e319af94fdf2f4c6c72465f"
+    "https://deno.land/x/oak@v16.1.0/utils/type_guards.ts": "a1b42aa4c431c4c07d3f8a45a2142020f86d5a3e1e319af94fdf2f4c6c72465f",
+    "https://esm.sh/react@18.2.0/jsx-runtime": "914a55a07c388d345c5a0c11616ee5282242e8b8dfd0d505b83500ea04fd9870",
+    "https://esm.sh/stable/react@18.2.0/denonext/jsx-runtime.js": "54d8a51c6ca025380abd2d5302e4a9b38ff835d9759c4657e52314f587eaf6bf",
+    "https://esm.sh/stable/react@18.2.0/denonext/react.mjs": "3c4f23bcfc53b256fcfaf6f834fa9f584c3bb7be667b2682c6cb6ba8ef88f8e6"
   }
 }

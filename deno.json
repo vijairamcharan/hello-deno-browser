@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["deno.window", "dom"],
+    "strict": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "https://esm.sh/react@18.2.0"
+  },
+  "lint": {
+    "exclude": ["client/**"],
+    "rules": {
+      "exclude": ["no-explicit-any"]
+    }
+  }
+}
