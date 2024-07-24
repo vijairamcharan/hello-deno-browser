@@ -1,6 +1,6 @@
-import { emojify } from "https://esm.run/node-emoji@2";
-import * as react from "https://esm.run/react";
-import * as reactDom from "https://esm.run/react-dom";
+import { emojify } from "https://cdn.jsdelivr.net/npm/node-emoji@2/+esm";
+import * as react from "https://cdn.jsdelivr.net/npm/react/+esm";
+import * as reactDom from "https://cdn.jsdelivr.net/npm/react-dom/+esm";
 import Greeting from "./Greeting.tsx";
 
 export function greet(name: string): string {
