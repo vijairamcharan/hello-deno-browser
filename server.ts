@@ -12,6 +12,7 @@ const mimeTypes: { [key: string]: string } = {
   ".html": "text/html",
   ".js": "application/javascript",
   ".ts": "application/javascript",
+  ".tsx": "application/javascript",
   ".css": "text/css",
   ".json": "application/json",
   ".wasm": "application/wasm",
@@ -88,7 +89,7 @@ app.use(async (context) => {
 
   try {
     let fileContent;
-    if (fileExt === ".ts") {
+    if (fileExt === ".ts" || fileExt === ".tsx") {
       console.log("Transpiling TypeScript file:", filePath);
       const url = new URL(filePath, import.meta.url);
       const result = await transpile(url);

@@ -4,14 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deno TypeScript</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        color: #333;
+      }
+      h1 {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 700;
+      }
+    </style>
   </head>
   <body>
     <script type="module">
       console.log("Hello, Deno!");
-      import { greet } from "http://localhost:8000/app.ts";
-      const message = greet("World");
-      console.log(message);
-      document.body.innerHTML = `<h1>${message}</h1>`;
+      import { greet, render } from "http://localhost:8000/app.ts";
+      // const message = greet("World");
+      // console.log(message);
+      // document.body.innerHTML = `<h1>${message}</h1>`;
+      render();
     </script>
   </body>
 </html>
