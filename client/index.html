@@ -25,10 +25,7 @@
   <body>
     <script type="module">
       console.log("Hello, Deno!");
-      import { greet, render } from "http://localhost:8000/app.ts";
-      // const message = greet("World");
-      // console.log(message);
-      // document.body.innerHTML = `<h1>${message}</h1>`;
+      import { render } from "http://localhost:8000/renderApp.ts";
       render();
     </script>
   </body>
